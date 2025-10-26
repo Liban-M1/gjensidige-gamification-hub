@@ -13,7 +13,7 @@
   --gjensidige-muted: #aab0cc;
 
   /* Design Tokens - Dark navy background with white cards */
-  --background: #090c33; /* Dark navy blue main background */
+  --background: #ffffff; /* Dark navy blue main background */
   --foreground: #ffffff; /* White text on dark background */
   --card: #ffffff; /* White cards */
   --card-foreground: #090c33; /* Dark blue text on white cards */

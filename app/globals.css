@@ -20,7 +20,7 @@
   --popover: #ffffff;
   --popover-foreground: #090c33;
   --primary: #090c33; /* Dark navy for buttons */
-  --primary-foreground: #ffffff; /* White text on buttons */
+  
   --secondary: #f4ffaf; /* Light yellow accent */
   --secondary-foreground: #090c33; /* Dark text on yellow */
   --muted: #d6ddee; /* Light grayish blue */
@@ -136,5 +136,6 @@
 
   .shadow-gjensidige-lg {
     box-shadow: 0 8px 30px rgba(9, 12, 51, 0.15);
+    border-color: #090c33; 
   }
 }

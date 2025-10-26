@@ -30,10 +30,10 @@ export default function RewardsPage() {
 
   if (loading) {
     return (
-      <div className="min-h-screen flex flex-col">
+      <div className="min-h-screen flex flex-col bg-white">
         <Header />
         <main className="flex-1 flex items-center justify-center">
-          <p className="text-muted-foreground">Laster belønninger...</p>
+          <p className="text-neutral-700">Laster belønninger...</p>
         </main>
         <Footer />
       </div>
@@ -41,69 +41,79 @@ export default function RewardsPage() {
   }
 
   return (
-    <div className="min-h-screen flex flex-col">
+    <div className="min-h-screen flex flex-col bg-white">
       <Header />
 
-      <main className="flex-1 container mx-auto px-4 py-8 max-w-screen-xl">
+      <main className="flex-1 container mx-auto px-4 py-8 max-w-screen-xl text-primary">
         <div className="max-w-6xl mx-auto space-y-8">
+          {/* Title */}
           <div className="text-center space-y-2">
-            <h1 className="text-4xl font-bold text-primary-foreground">Belønninger</h1>
-            <p className="text-muted-foreground">Din progresjon og opptjente badges</p>
+            <h1 className="text-4xl font-bold text-primary">Belønninger</h1>
+            <p className="text-neutral-700">Din progresjon og opptjente badges</p>
           </div>
 
           {/* Stats Overview */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            <Card className="bg-card shadow-gjensidige">
+            <Card className="bg-card shadow-gjensidige border border-neutral-200">
               <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-                <CardTitle className="text-sm font-medium text-card-foreground">Totale poeng</CardTitle>
-                <Trophy className="h-4 w-4 text-card-foreground/60" />
+                <CardTitle className="text-sm font-medium text-primary">Totale poeng</CardTitle>
+                <Trophy className="h-4 w-4 text-primary/70" />
               </CardHeader>
               <CardContent>
-                <div className="text-3xl font-bold text-secondary">{userProgress.points}</div>
-                <p className="text-xs text-card-foreground/70 mt-1">Nivå {userProgress.level}</p>
+                <div className="text-3xl font-bold text-primary">{userProgress.points}</div>
+                <p className="text-xs text-neutral-600 mt-1">Nivå {userProgress.level}</p>
               </CardContent>
             </Card>
 
-            <Card className="bg-card shadow-gjensidige">
+            <Card className="bg-card shadow-gjensidige border border-neutral-200">
               <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-                <CardTitle className="text-sm font-medium text-card-foreground">Quiz fullført</CardTitle>
-                <Target className="h-4 w-4 text-card-foreground/60" />
+                <CardTitle className="text-sm font-medium text-primary">Quiz fullført</CardTitle>
+                <Target className="h-4 w-4 text-primary/70" />
               </CardHeader>
               <CardContent>
-                <div className="text-3xl font-bold text-secondary">{userProgress.quizzesCompleted}</div>
-                <p className="text-xs text-card-foreground/70 mt-1">Totalt antall</p>
+                <div className="text-3xl font-bold text-primary">{userProgress.quizzesCompleted}</div>
+                <p className="text-xs text-neutral-600 mt-1">Totalt antall</p>
               </CardContent>
             </Card>
 
-            <Card className="bg-card shadow-gjensidige">
+            <Card className="bg-card shadow-gjensidige border border-neutral-200">
               <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-                <CardTitle className="text-sm font-medium text-card-foreground">Badges opptjent</CardTitle>
-                <Award className="h-4 w-4 text-card-foreground/60" />
+                <CardTitle className="text-sm font-medium text-primary">Badges opptjent</CardTitle>
+                <Award className="h-4 w-4 text-primary/70" />
               </CardHeader>
               <CardContent>
-                <div className="text-3xl font-bold text-secondary">{userProgress.badgesEarned}</div>
-                <p className="text-xs text-card-foreground/70 mt-1">av {badges.length} totalt</p>
+                <div className="text-3xl font-bold text-primary">{userProgress.badgesEarned}</div>
+                <p className="text-xs text-neutral-600 mt-1">av {badges.length} totalt</p>
               </CardContent>
             </Card>
           </div>
 
           {/* Security Level */}
-          <Card className="bg-card shadow-gjensidige">
+          <Card className="bg-card shadow-gjensidige border border-neutral-200">
             <CardHeader>
-              <CardTitle className="text-card-foreground">Trygghetsnivå</CardTitle>
-              <CardDescription className="text-card-foreground/70">
+              <CardTitle className="text-primary">Trygghetsnivå</CardTitle>
+              <CardDescription className="text-neutral-700">
                 Din samlede kunnskap om trygghet og forsikring
               </CardDescription>
             </CardHeader>
             <CardContent className="flex flex-col md:flex-row items-center gap-8">
-              <CircularProgress value={userProgress.securityLevel} label="Trygghetsnivå" size={140} />
+              <CircularProgress
+                value={userProgress.securityLevel}
+                label="Trygghetsnivå"
+                size={140}
+              />
               <div className="flex-1 w-full space-y-4">
                 <div>
-                  <p className="text-sm font-medium mb-2 text-card-foreground">Progresjon til neste nivå</p>
-                  <ProgressBar value={userProgress.points % 500} max={500} label="Poeng til nivå 4" />
+                  <p className="text-sm font-medium mb-2 text-primary">Progresjon til neste nivå</p>
+                  <ProgressBar
+                    value={userProgress.points % 500}
+                    max={500}
+                    label="Poeng til nivå 4"
+                  />
                 </div>
-                <p className="text-sm text-card-foreground/70">
-                  Du trenger {500 - (userProgress.points % 500)} poeng til for å nå nivå {userProgress.level + 1}
+                <p className="text-sm text-neutral-700">
+                  Du trenger {500 - (userProgress.points % 500)} poeng til for å nå nivå{" "}
+                  {userProgress.level + 1}
                 </p>
               </div>
             </CardContent>
@@ -111,7 +121,7 @@ export default function RewardsPage() {
 
           {/* Badges */}
           <div className="space-y-4">
-            <h2 className="text-2xl font-bold text-primary-foreground">Badges</h2>
+            <h2 className="text-2xl font-bold text-primary">Badges</h2>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
               {badges.map((badge) => (
                 <BadgeCard key={badge.id} badge={badge} />
